@@ -1,0 +1,45 @@
+---
+
+---
+
+<form class="space-y-6 max-w-md mx-auto">
+  <div>
+    <label for="name" class="block text-sm font-medium">Nombre</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="mt-1 block w-full p-2 rounded-md border-amber-300 shadow-sm focus:border-secondary focus:ring-secondary"
+    />
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="mt-1 block p-2 w-full rounded-md border-amber-300 shadow-sm focus:border-secondary focus:ring-secondary"
+    />
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium">Mensaje</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="mt-1 block w-full rounded-md border-amber-300 shadow-sm focus:border-secondary focus:ring-secondary"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-secondary/95 text-white py-2 cursor-pointer ease-in hover:scale-105 px-4 rounded-md hover:bg-secondary transition-all duration-300"
+  >
+    Enviar Mensaje
+  </button>
+</form>

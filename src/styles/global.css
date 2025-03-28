@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #4a2c2a;
+  --color-secondary: #ad8f4e;
+  --color-aFondo: #262223;
+  --color-whiteBg: #f3f9fc;
+  --color-darkBg: #44393f;
+  --color-accent: #ffa07a;
+  --color-menu: #57505e;
+  --color-menuDark: #dfd7e7;
+
+  /* Nuevos colores para las tarjetas */
+  --color-cardBgLight: #f8f2ec; /* Fondo en modo claro */
+  --color-cardBgDark: #3a302e; /* Fondo en modo oscuro */
+}
+@custom-variant dark (&:where(.dark, .dark *));

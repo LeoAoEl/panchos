@@ -1,0 +1,60 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/shared/Container.astro";
+import Title from "@components/shared/Title.astro";
+
+import Visitar from "@components/about/Visitar.astro";
+import TeamSection from "@components/about/TeamSection.astro";
+import Banner from "@components/home/Banner.astro";
+import Cambios from "@components/about/Cambios.astro";
+---
+
+<Layout>
+  <Container>
+    <!-- Historia Section -->
+    <section>
+      <div>
+        <div class="text-center">
+          <Title variant="big"> Nuestra Historia </Title>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 items-center"
+          >
+            <div class="text-left">
+              <div class="mb-8">
+                <Title> El Sueño de un Café Diferente </Title>
+              </div>
+
+              <p class="text-lg mb-6">
+                Todo comenzó en 2018 con un sueño simple pero apasionado: crear
+                un espacio donde el café de alta calidad se encontrara con la
+                calidez de la hospitalidad tradicional. Después de años
+                trabajando en la industria gastronómica, decidí dar vida a este
+                proyecto único.
+              </p>
+              <p class="text-lg">
+                La búsqueda del local perfecto nos llevó a este rincón especial
+                de la ciudad, donde finalmente en 2019 abrimos nuestras puertas
+                por primera vez.
+              </p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow-xl">
+              <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+                alt="Nuestra cafetería"
+                class="w-full h-96 object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evolución Section -->
+    <Cambios />
+
+    <!-- Team Section -->
+    <TeamSection />
+  </Container>
+  <!-- Contact & Visit Section -->
+  <Banner />
+</Layout>

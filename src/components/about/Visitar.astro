@@ -1,0 +1,24 @@
+---
+import CustomBotton from "@components/shared/CustomBotton.astro";
+import { Menu, Mail, Coffee, Map } from "lucide-react";
+---
+
+<section class="py-16 bg-cardBgLight dark:bg-cardBgDark">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-gray-900 mb-8">Visítanos</h2>
+    <p class="text-xl text-gray-600 mb-8">
+      Te esperamos para vivir una experiencia única de café y gastronomía
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <CustomBotton label="Ir a Contact" path="/contact/" variant="accent">
+        <Map size={24} aria-hidden="true" />
+        Visitar Cafetería
+      </CustomBotton>
+      <div class="mt-12 gap-2 flex flex-col">
+        <p class="font-bold text-xl">Horario de Atención</p>
+        <p>Lunes a Viernes: 7:00 AM - 9:00 PM</p>
+        <p>Sábados y Domingos: 8:00 AM - 10:00 PM</p>
+      </div>
+    </div>
+  </div>
+</section>

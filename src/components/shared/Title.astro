@@ -1,0 +1,17 @@
+---
+interface Props {
+  variant?: "big" | "title" | "subtitle";
+}
+
+const { variant = "title" } = Astro.props;
+
+const classes = {
+  big: "text-4xl md:text-5xl font-extrabold",
+  title: "text-3xl md:text-4xl font-bold",
+  subtitle: "text-xl font-semibold",
+}[variant];
+---
+
+<h2 class={"leading-tight " + classes}>
+  <slot />
+</h2>

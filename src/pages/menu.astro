@@ -1,0 +1,18 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/shared/Container.astro";
+import MenuComponent from "@components/menu/MenuComponent";
+import Title from "@components/shared/Title.astro";
+---
+
+<Layout>
+  <Container>
+    <div class="text-center mb-8">
+      <Title variant="big">Nuestro Menú</Title>
+      <p class="italic mt-2">
+        Deliciosas opciones para cualquier momento del día
+      </p>
+    </div>
+    <MenuComponent client:visible />
+  </Container>
+</Layout>

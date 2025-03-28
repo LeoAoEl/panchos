@@ -1,0 +1,42 @@
+---
+import { Menu, Mail, Coffee } from "lucide-react";
+import Title from "@components/shared/Title.astro";
+import CustomBotton from "@components/shared/CustomBotton.astro";
+---
+
+<section class="py-16">
+  <!-- Título -->
+  <div class="mb-6 text-center">
+    <Title>Descubre la esencia de nuestra cafetería</Title>
+  </div>
+
+  <!-- Descripción -->
+  <p
+    class="text-lg md:text-xl mb-10 mx-auto max-w-3xl leading-relaxed text-center"
+  >
+    Degusta nuestro menú artesanal, conoce la pasión detrás de cada taza y
+    conecta con nuestro equipo. ¡Todo el sabor y calidez de un buen café en cada
+    detalle!
+  </p>
+
+  <!-- Botones de acción -->
+  <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+    <!-- Menú -->
+    <CustomBotton path="/menu/" label="Ir a Menú">
+      <Menu size={24} aria-hidden="true" />
+      Menú Completo
+    </CustomBotton>
+
+    <!-- Sobre Nosotros -->
+    <CustomBotton path="/about/" variant="accent" label="Ir a Acerca de">
+      <Coffee size={24} aria-hidden="true" />
+      Nuestra Historia
+    </CustomBotton>
+
+    <!-- Contacto -->
+    <CustomBotton path="/contact/" label="Ir a contacto">
+      <Mail size={24} aria-hidden="true" />
+      Contáctanos
+    </CustomBotton>
+  </div>
+</section>

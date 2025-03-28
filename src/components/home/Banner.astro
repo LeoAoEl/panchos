@@ -1,0 +1,25 @@
+---
+import ParallaxBanner from "./ParallaxBanner.astro";
+import { Map } from "lucide-react";
+import CustomBotton from "@components/shared/CustomBotton.astro";
+---
+
+<ParallaxBanner BgImage="BgImage">
+  <h2 class="text-4xl md:text-7xl text-white font-extrabold">
+    Visitanos en Café Escondido
+  </h2>
+  <p class="text-white text-xl md:text-2xl">
+    Te esperamos para vivir una experiencia única de café y gastronomía
+  </p>
+
+  <div class="max-w-xs mt-6 mx-auto">
+    <CustomBotton
+      target
+      label="Mapa"
+      path="https://maps.app.goo.gl/pRHEEZsbsmEwLW8q8"
+    >
+      <Map size={24} aria-hidden="true" />
+      Visitar
+    </CustomBotton>
+  </div>
+</ParallaxBanner>

@@ -1,0 +1,20 @@
+---
+import Container from "@components/shared/Container.astro";
+
+interface Props {
+  BgImage: string;
+}
+
+const { BgImage } = Astro.props;
+---
+
+<section
+  class="min-h-screen flex flex-col justify-center items-center bg-cover bg-fixed bg-center"
+  style={`background-image: url('/images/${BgImage}.avif');`}
+>
+  <Container>
+    <main class="justify-center items-center flex flex-col gap-2 text-center">
+      <slot />
+    </main>
+  </Container>
+</section>

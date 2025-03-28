@@ -1,0 +1,43 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/shared/Container.astro";
+import Title from "@components/shared/Title.astro";
+
+import Map from "@components/contact/Map.astro";
+import SocialLinks from "@components/contact/SocialLinks.astro";
+import Form from "@components/contact/Form.astro";
+---
+
+<Layout>
+  <Container>
+    <div class="text-center">
+      <Title variant="big"> Contáctanos </Title>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+      <div class="space-y-8">
+        <div class="text-center lg:text-left">
+          <h2 class="text-2xl font-semibold mb-4">Información de Contacto</h2>
+          <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte.</p>
+        </div>
+
+        <Form />
+
+        <div class="pt-6">
+          <h3 class="text-xl font-semibold mb-4 text-center">
+            Síguenos en Redes Sociales
+          </h3>
+          <SocialLinks />
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        <div class="text-center lg:text-left">
+          <h2 class="text-2xl font-semibold mb-4">Ubicación</h2>
+        </div>
+
+        <Map />
+      </div>
+    </div>
+  </Container>
+</Layout>

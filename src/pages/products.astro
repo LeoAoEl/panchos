@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/shared/Container.astro";
+
+import AboutCoffe from "@components/products/AboutCoffe.astro";
+import HeroSection from "@components/products/HeroSection.astro";
+import ProductCard from "@components/products/ProductCard.astro";
+import Process from "@components/products/Process.astro";
+import FAQ from "@components/products/FAQ.astro";
+
+const image =
+  "https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+---
+
+<Layout>
+  <main>
+    <HeroSection />
+    <Container>
+      <AboutCoffe />
+      <Process />
+      <section class="mx-auto py-16">
+        <h2 class="text-center text-3xl md:text-4xl font-bold mb-6">
+          Nuestros Productos
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ProductCard
+            title="Café en Grano"
+            image={image}
+            description="Granos de café recién tostados con un aroma inigualable."
+          />
+          <ProductCard
+            title="Café Molido"
+            image={image}
+            description="Molido perfecto para espresso o prensa francesa."
+          />
+          <ProductCard
+            title="Cápsulas de Café"
+            image={image}
+            description="Café en cápsulas compatibles con tu cafetera favorita."
+          />
+        </div>
+      </section>
+      <FAQ />
+    </Container>
+  </main>
+</Layout>

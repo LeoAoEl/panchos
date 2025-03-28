@@ -1,0 +1,58 @@
+---
+const faqs = [
+  {
+    question: "¿De dónde proviene tu café?",
+    answer:
+      "Nuestro café es cultivado en fincas seleccionadas, donde cuidamos cada detalle desde la semilla hasta el grano final, garantizando un producto único y de calidad.",
+  },
+  {
+    question: "¿Cómo garantizan la calidad?",
+    answer:
+      "Cada grano se somete a rigurosos controles de calidad y procesos de tostado artesanal, asegurando que el sabor y el aroma sean inigualables.",
+  },
+  {
+    question: "¿Puedo hacer un pedido especial?",
+    answer:
+      "¡Por supuesto! Nos adaptamos a las necesidades de nuestros clientes. Puedes contactarnos para solicitar pedidos personalizados o reservas especiales.",
+  },
+  {
+    question: "¿Cuál es el proceso de producción?",
+    answer:
+      "Nuestro proceso abarca desde la selección de la semilla, pasando por el cultivo y la recolección, hasta el tostado y empaque, todo realizado con pasión y precisión.",
+  },
+  {
+    question: "¿Dónde puedo adquirir su café?",
+    answer:
+      "Puedes realizar tus pedidos a través de nuestro sitio web o contactarnos directamente vía WhatsApp, Instagram o Facebook para mayor comodidad.",
+  },
+];
+---
+
+<section class="mx-auto py-16">
+  <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
+  <div class="space-y-4">
+    {
+      faqs.map((faq) => (
+        <details class=" rounded-lg p-4 transition duration-300 hover:shadow-lg dark:bg-cardBgDark bg-cardBgLight">
+          <summary class="cursor-pointer text-lg font-semibold  list-none  md:prose-xl">
+            {faq.question}
+          </summary>
+          <p class="mt-2 md:prose-lg content ">{faq.answer}</p>
+        </details>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  /* Para el contenido de <details>, aplicamos transición con max-height */
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  details[open] .content {
+    max-height: 500px; /* Ajusta según la longitud de tu contenido */
+  }
+</style>

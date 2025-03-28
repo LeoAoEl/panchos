@@ -1,0 +1,42 @@
+---
+import Title from "@components/shared/Title.astro";
+
+const team = [
+  {
+    name: "María González",
+    position: "Fundadora & Chef Ejecutiva",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+  },
+  {
+    name: "Carlos Ruiz",
+    position: "Barista Principal",
+    image: "https://images.unsplash.com/photo-1534308143481-c55f00be8bd7",
+  },
+  {
+    name: "Ana Martínez",
+    position: "Chef de Cocina",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956",
+  },
+];
+---
+
+<section class="py-16">
+  <div class="text-center mb-12">
+    <Title> Nuestro Equipo </Title>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {
+      team.map(({ name, position, image }) => (
+        <div class="bg-cardBgLight dark:bg-cardBgDark rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+          <div class="aspect-w-1 aspect-h-1">
+            <img src={image} alt={position} class="w-full h-64 object-cover" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold">{name}</h3>
+            <p class="mt-2">{position}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,51 @@
+/* Estilo de los bullets de paginación */
+.swiper-pagination-bullet {
+  background-color: white; /* Fondo blanco para mejor visibilidad */
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+/* Bullet activo más grande y alargado */
+.swiper-pagination-bullet-active {
+  background-color: #b38b1a; /* Color secundario sólido */
+  width: 30px;
+  height: 16px;
+  border-radius: 12px;
+  opacity: 1;
+}
+
+/* Ocultar botones de navegación en móviles */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+/* Estilo de los botones de navegación en pantallas grandes */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important; /* Color del icono */
+  background-color: #4a2c2a; /* Fondo color secundario */
+  width: 50px;
+  height: 50px;
+  padding: 32px;
+  border-radius: 16%; /* Forma circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Hover: Aumenta tamaño y cambia el fondo ligeramente */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.2);
+  background-color: #926f0f;
+}
