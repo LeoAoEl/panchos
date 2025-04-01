@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  imagen: ImageMetadata;
+  body?: string;
+}
+
+const { title, body, imagen } = Astro.props;
+---
+
+<section
+  class="relative bg-secondary transition-colors ease-in text-primary dark:text-whiteBg dark:bg-primary"
+>
+  <Image
+    src={imagen}
+    alt="Café Artesanal"
+    class="w-full h-96 object-cover opacity-60"
+    loading={"lazy"}
+  />
+  <div class="absolute inset-0 flex flex-col justify-center items-center">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
+    {body ? <p class="text-xl max-w-xl text-center">{body} </p> : ""}
+  </div>
+</section>

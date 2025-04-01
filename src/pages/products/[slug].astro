@@ -1,0 +1,138 @@
+---
+import Container from "@components/shared/Container.astro";
+import PLayout from "@layouts/PLayout.astro";
+import CustomBotton from "@components/shared/CustomBotton.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { Send, Store } from "lucide-react";
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product, allProducts: products },
+  }));
+}
+
+const { product, allProducts } = Astro.props;
+const { Content } = await product.render();
+
+const relatedProducts = allProducts.filter((p) => p.slug !== product.slug);
+---
+
+<PLayout title={product.data.title}>
+  <Container>
+    <div class="mx-auto">
+      <!-- Product Header -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="aspect-square rounded-lg overflow-hidden">
+          <Image
+            src={product.data.image}
+            alt={product.data.title}
+            loading={"lazy"}
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="flex flex-col justify-center">
+          <h1
+            class="text-3xl font-bold mb-4"
+            transition:name={product.data.title}
+          >
+            {product.data.title}
+          </h1>
+          <p class="mb-6">{product.data.description}</p>
+          <div class="flex gap-4">
+            <CustomBotton path="#" label="comprar">
+              <Store size={24} aria-hidden="true" />
+
+              Comprar Ahora
+            </CustomBotton>
+            <CustomBotton
+              path="https://wa.me/tu-numero"
+              label="Consultar por whatsapp"
+              target
+              variant="accent"
+            >
+              <Send size={24} aria-hidden="true" />
+
+              Consultar Disponibilidad
+            </CustomBotton>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Content -->
+      <div class="prose max-w-none mb-16 dark:text-secondary text-primary">
+        <Content />
+      </div>
+
+      <!-- Comparison Table -->
+      <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-8">Comparación de Cafés</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="">
+                <th class="border p-4 text-left">Características</th>
+                <th class="border p-4 text-left">Descafeinado Natural</th>
+                <th class="border p-4 text-left">Café Regular</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border p-4 font-medium">Cafeína</td>
+                <td class="border p-4">Sin cafeína</td>
+                <td class="border p-4">Regular</td>
+              </tr>
+              <tr>
+                <td class="border p-4 font-medium">Proceso</td>
+                <td class="border p-4">Natural</td>
+                <td class="border p-4">Tradicional</td>
+              </tr>
+              <tr>
+                <td class="border p-4 font-medium">Sabor</td>
+                <td class="border p-4">Suave, notas a caramelo</td>
+                <td class="border p-4">Intenso, notas a chocolate</td>
+              </tr>
+              <tr>
+                <td class="border p-4 font-medium">Ideal para</td>
+                <td class="border p-4">Tarde/Noche</td>
+                <td class="border p-4">Mañana</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Related Products -->
+      <section>
+        <h2 class="text-2xl font-bold mb-8">Otros Cafés Disponibles</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {
+            relatedProducts.map((relatedProduct) => (
+              <a href={`/products/${relatedProduct.slug}`} class="group">
+                <article class="bg-cardBgLight dark:bg-cardBgDark rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all">
+                  <div class="aspect-square overflow-hidden">
+                    <Image
+                      src={relatedProduct.data.image}
+                      alt={relatedProduct.data.title}
+                      class="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">
+                      {relatedProduct.data.title}
+                    </h3>
+                    <p class=" text-sm line-clamp-2">
+                      {relatedProduct.data.description}
+                    </p>
+                  </div>
+                </article>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </Container>
+</PLayout>

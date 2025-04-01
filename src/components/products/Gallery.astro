@@ -1,0 +1,80 @@
+---
+
+---
+
+<!-- Production Process Gallery -->
+<section class="mb-16">
+  <h2 class="text-2xl font-bold mb-8">Proceso de Producción</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pswp-gallery" id="gallery">
+    {
+      galleryImages.map((image, index) => (
+        <a
+          href={image.src}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          data-cropped="true"
+          class="block rounded-lg overflow-hidden hover:opacity-90 transition-opacity"
+        >
+          <img
+            src={image.src}
+            alt={image.caption}
+            class="w-full h-64 object-cover"
+            loading="lazy"
+          />
+          <div class="hidden">{image.caption}</div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  import PhotoSwipe from "photoswipe";
+  import "photoswipe/style.css";
+
+  let gallery = null;
+
+  // Initialize PhotoSwipe
+  const initPhotoSwipe = () => {
+    const galleryElements = document.querySelectorAll(".pswp-gallery");
+
+    galleryElements.forEach((galleryElement) => {
+      const links = galleryElement.querySelectorAll("a");
+
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const items = Array.from(links).map((linkElement) => {
+            const img = linkElement.querySelector("img");
+            const captionDiv = linkElement.querySelector("div");
+
+            return {
+              src: linkElement.href,
+              w: parseInt(linkElement.dataset.pswpWidth, 10),
+              h: parseInt(linkElement.dataset.pswpHeight, 10),
+              alt: img?.alt || "",
+              caption: captionDiv?.textContent || "",
+            };
+          });
+
+          const options = {
+            index: Array.from(links).indexOf(link),
+            showHideAnimationType: "fade",
+            bgOpacity: 0.9,
+          };
+
+          gallery = new PhotoSwipe({
+            dataSource: items,
+            options: options,
+          });
+
+          gallery.init();
+        });
+      });
+    });
+  };
+
+  // Initialize when the page loads
+  document.addEventListener("astro:page-load", initPhotoSwipe);
+</script>
